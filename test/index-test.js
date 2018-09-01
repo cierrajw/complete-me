@@ -60,24 +60,35 @@ describe('trie class test', function() {
 
     trie.insert(word);
 
-
-
    });
 
-  it.skip('should increase totalWords each time we instantiate a new word', function() {
+  it('should increase totalWords each time we add a new word', function() {
     let trie = new Trie();
 
     expect(trie.totalWords).to.eq(0);
 
     trie.insert('howdy');
 
-    expect(trie.totalWords).to.eq(1);
+    trie.insert('horse');
+
+    expect(trie.totalWords).to.eq(2);
 
    });
 
   it.skip('it should not increase word count if there is a duplicate', function() {
     let trie = new Trie();
 
+    expect(trie.totalWords).to.eq(0);
+
+    trie.insert('howdy');
+
+    trie.insert('howdy');
+
+    expect(trie.totalWords).to.eq(1);
+
+    if(!trie.insert(this.word)){
+      trie.count();
+    }
 
    });
 
@@ -90,9 +101,15 @@ describe('trie class test', function() {
 
     trie.suggest();
 
-    console.log(Object.keys(trie.root.children));//prints [h, w, h] for the first letter of each word
+    console.log(trie.rootNode.keys);
 
-    expect(Object.keys(trie.root.children).to.deep.eq('h', 'e', 'l', 'l', 'o'))
+    // console.log(Object.keys(trie.root.children));//prints [h, w, h] for the first letter of each word
+
+    expect(trie.rootNode.keys.to.deep.eq('h', 'e', 'l', 'l', 'o'));
+
+    expect(trie.rootNode.keys.to.deep.eq('w', 'o', 'r', 'l', 'd'));
+
+    expect(trie.rootNode.keys.to.deep.eq('h', 'o', 'w', 'd', 'y'));
 
    });
 
