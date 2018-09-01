@@ -1,18 +1,18 @@
-//  import { assert } from 'chai';
-//  import Node from '../lib/Node';
+ import { assert } from 'chai';
+ import Node from '../lib/Node';
     
 
-// describe('trie class test', function() {
+describe('node class test', function() {
 
-//   it('it should have correct default properties', function() {
-//     let node = new Node();
+  it('it should have correct default properties', function() {
 
-//     assert.deepEqual(trie, {
-//       val: letter,
-//       children: {},
-//       end: false,
-//     });
+    let node = new Node();
 
-//    });
+    assert.deepEqual(node, {
+      end: false,
+      keys: new Map()
+    });
 
-// });
+   });
+
+});

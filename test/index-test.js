@@ -1,6 +1,9 @@
- import { assert } from 'chai';
- import Trie from '../lib/Trie.js';
-    
+import { assert } from 'chai';
+import { expect } from 'chai';
+import Trie from '../lib/Trie.js';
+import Node from '../lib/Node.js';
+var chai = require('chai');
+// var expect = chai.expect;
 
 describe('trie class test', function() {
 
@@ -9,14 +12,15 @@ describe('trie class test', function() {
 
     assert.deepEqual(trie, {
       totalWords: 0,
-      rootNode: null
+      rootNode: new Node()
     });
 
    });
 
+
 });
 
- describe('assert test', function() {
+ describe('insert test', function() {
 
   it('it should be a function', function() {
     let trie = new Trie();
@@ -34,22 +38,16 @@ describe('trie class test', function() {
    });
 
 
-  it.skip('should start with zero elements', function() {
+  it('should start with zero elements', function() {
     let trie = new Trie();
 
     expect(trie.totalWords).to.equal(0);
 
    });
 
-  it('should set its default root to null', function() {
-    let trie = new Trie();
-
-     assert.equal(trie.rootNode, null);
-
-   });
-
   it('should be able to take in a word', function(){
-    let trie = new Trie(this.word);
+    let node = new Node();
+    let trie = new Trie(this.word, this.rootNode);
 
     trie.insert('hello');
     trie.insert('whatssaaaaap');
@@ -79,25 +77,6 @@ describe('trie class test', function() {
 
    });
 
-
- });
-
- describe('insert recursive test', function() {
-
-  it.skip('it should be a function', function() {
-    let trie = new Trie();
-
-    assert.isFunction(trie.insertRecursive);
-
-   });
-
-  it.skip('should start with zero elements', function() {
-    let trie = new Trie();
-
-    expect(trie.totalWords).to.equal(0);
-
-   });
-
   it.skip('should create child nodes for each letter of the word', function() {
     let trie = new Trie();
 
@@ -113,7 +92,9 @@ describe('trie class test', function() {
 
    });
 
+
  });
+
 
   describe('suggest test', function() {
 
