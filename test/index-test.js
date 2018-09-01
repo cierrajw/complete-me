@@ -1,25 +1,70 @@
  import { assert } from 'chai';
- import Trie from '../lib/Trie';
+ import Trie from '../lib/Trie.js';
     
- describe('test', function() {
+
+describe('trie class test', function() {
+
+  it('it should have correct default properties', function() {
+    let trie = new Trie();
+
+    assert.deepEqual(trie, {
+      totalWords: 0,
+      rootNode: null
+    });
+
+   });
+
+});
+
+ describe('assert test', function() {
+
+  it('it should be a function', function() {
+    let trie = new Trie();
+
+    assert.isFunction(trie.insert);
+
+   });
+
+  it('it should be an instance of a trie', function() {
+    let trie = new Trie();
+
+    assert.instanceOf(trie, Trie);
 
 
+   });
 
-  it('should start with zero elements', function() {
+
+  it.skip('should start with zero elements', function() {
     let trie = new Trie();
 
     expect(trie.totalWords).to.equal(0);
 
    });
 
-  it('should set its default root to empty object', function() {
+  it('should set its default root to null', function() {
     let trie = new Trie();
 
-     assert.isFunction(trie.add);
+     assert.equal(trie.rootNode, null);
 
    });
 
-  it('should increase totalWords each time we instatiate a new word', function() {
+  it('should be able to take in a word', function(){
+    let trie = new Trie(this.word);
+
+    trie.insert('hello');
+    trie.insert('whatssaaaaap');
+    trie.insert('megalomaniac');
+
+   });
+
+  it.skip('should be able to add/insert a word', function(){
+    let trie = new Trie(word);
+
+    trie.insert(word);
+
+   });
+
+  it.skip('should increase totalWords each time we instatiate a new word', function() {
     let trie = new Trie();
 
     expect(trie.totalWords).to.eq(0);
@@ -28,7 +73,32 @@
 
    });
 
-  it('shoudl insert word correctly when calling insert', function() {
+  it.skip('it should not increase word count if there is a duplicate', function() {
+    let trie = new Trie();
+
+
+   });
+
+
+ });
+
+ describe('insert recursive test', function() {
+
+  it.skip('it should be a function', function() {
+    let trie = new Trie();
+
+    assert.isFunction(trie.insertRecursive);
+
+   });
+
+  it.skip('should start with zero elements', function() {
+    let trie = new Trie();
+
+    expect(trie.totalWords).to.equal(0);
+
+   });
+
+  it.skip('should create child nodes for each letter of the word', function() {
     let trie = new Trie();
 
     trie.insert('hello');
@@ -43,46 +113,40 @@
 
    });
 
+ });
 
+  describe('suggest test', function() {
 
-
-
-
-
-
-
-
-
-
-
-   it('insert should be a function', function() {
+    it.skip('it should be a function', function() {
     let trie = new Trie();
 
-     assert.isFunction(trie.add);
+    assert.isFunction(trie.suggest);
 
    });
 
-   it('should be able to take in a word', function(){
-    let trie = new Trie(word);
+  it.skip('should start with zero elements', function() {
+    let trie = new Trie();
+
+    expect(trie.totalWords).to.equal(0);
 
    });
 
-   it('should be able to add/insert a word', function(){
-    let trie = new Trie(word);
+  it.skip('should return an empty array if there are no matches', function() {
+    let trie = new Trie();
 
-    trie.insert(word);
+
+   });
+
+  it.skip('if there are matches it should return only every single match', function() {
+    let trie = new Trie();
+    //here insert a variety of words that should/shouldn't be in the returned array: hey, hello, help, and then dog because dog is very different
+
 
    });
 
-   it('should be able to keep count of added words', function(){
-    let trie = new Trie(word);
 
-    trie.insert(word);
-
-   });
  });
 
 
 
-
- expect(trie.rootNode).to.have.property('c');
+ // expect(trie.rootNode).to.have.property('c');
