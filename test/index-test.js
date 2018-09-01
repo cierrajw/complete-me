@@ -47,11 +47,11 @@ describe('trie class test', function() {
 
   it('should be able to take in a word', function(){
     let node = new Node();
-    let trie = new Trie(this.word, this.rootNode);
+    let trie = new Trie();
 
-    trie.insert('hello');
-    trie.insert('whatssaaaaap');
-    trie.insert('megalomaniac');
+    trie.insert('hello', node);
+    trie.insert('whatssaaaaap', node);
+    trie.insert('megalomaniac', node);
 
    });
 
@@ -60,13 +60,17 @@ describe('trie class test', function() {
 
     trie.insert(word);
 
+
+
    });
 
-  it.skip('should increase totalWords each time we instatiate a new word', function() {
+  it.skip('should increase totalWords each time we instantiate a new word', function() {
     let trie = new Trie();
 
     expect(trie.totalWords).to.eq(0);
-    trie.insert('poop');
+
+    trie.insert('howdy');
+
     expect(trie.totalWords).to.eq(1);
 
    });
