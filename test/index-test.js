@@ -12,7 +12,7 @@ describe('trie class test', function() {
 
     assert.deepEqual(trie, {
       totalWords: 0,
-      rootNode: new Node()
+      rootNode: new Node(),
     });
 
    });
@@ -84,10 +84,12 @@ describe('trie class test', function() {
 
     trie.insert('howdy');
 
-    expect(trie.totalWords).to.eq(1);
+    // expect(trie.totalWords).to.eq(1);
 
     if(!trie.insert(this.word)){
-      trie.count();
+      expect(trie.totalWords).to.eq(2);
+    }else if(trie.insert(this.word)){
+      expect(trie.totalWords).to.eq(1);
     }
 
    });
@@ -96,20 +98,20 @@ describe('trie class test', function() {
     let trie = new Trie();
 
     trie.insert('hello');
-    trie.insert('world')
-    trie.insert('howdy');
+    // trie.insert('world')
+    // trie.insert('howdy');
 
     trie.suggest();
 
-    console.log(trie.rootNode.keys);
+    console.log("TRIE ROOT: " + trie.rootNode.keys);
 
     // console.log(Object.keys(trie.root.children));//prints [h, w, h] for the first letter of each word
 
-    expect(trie.rootNode.keys.to.deep.eq('h', 'e', 'l', 'l', 'o'));
+    expect(trie.rootNode.keys).to.deep.eq('h', 'e', 'l', 'l', 'o');
 
-    expect(trie.rootNode.keys.to.deep.eq('w', 'o', 'r', 'l', 'd'));
+    // expect(trie.rootNode.keys).to.deep.eq('w', 'o', 'r', 'l', 'd');
 
-    expect(trie.rootNode.keys.to.deep.eq('h', 'o', 'w', 'd', 'y'));
+    // expect(trie.rootNode.keys).to.deep.eq('h', 'o', 'w', 'd', 'y');
 
    });
 
@@ -119,22 +121,17 @@ describe('trie class test', function() {
 
   describe('suggest test', function() {
 
-    it.skip('it should be a function', function() {
+    it('it should be a function', function() {
     let trie = new Trie();
 
     assert.isFunction(trie.suggest);
 
    });
 
-  it.skip('should start with zero elements', function() {
-    let trie = new Trie();
-
-    expect(trie.totalWords).to.equal(0);
-
-   });
-
   it.skip('should return an empty array if there are no matches', function() {
     let trie = new Trie();
+
+    
 
 
    });
