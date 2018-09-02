@@ -2,6 +2,7 @@ import { assert } from 'chai';
 import { expect } from 'chai';
 import Trie from '../lib/Trie.js';
 import Node from '../lib/Node.js';
+const text = "/usr/share/dict/words";
 import fs from 'fs';
 // var chai = require('chai');
 // var expect = chai.expect;
@@ -54,7 +55,7 @@ describe('trie class test', function() {
     trie.insert('whatssaaaaap', node);
     trie.insert('megalomaniac', node);
 
-    console.log(JSON.stringify(trie.rootNode.keys, null, 4));
+    console.log(JSON.stringify(trie.rootNode, null, 4));
 
    });
 
