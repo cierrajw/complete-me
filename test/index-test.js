@@ -2,7 +2,8 @@ import { assert } from 'chai';
 import { expect } from 'chai';
 import Trie from '../lib/Trie.js';
 import Node from '../lib/Node.js';
-var chai = require('chai');
+import fs from 'fs';
+// var chai = require('chai');
 // var expect = chai.expect;
 
 describe('trie class test', function() {
@@ -53,6 +54,8 @@ describe('trie class test', function() {
     trie.insert('whatssaaaaap', node);
     trie.insert('megalomaniac', node);
 
+    console.log(JSON.stringify(trie.rootNode.keys, null, 4));
+
    });
 
   it.skip('should be able to add/insert a word', function(){
@@ -72,6 +75,8 @@ describe('trie class test', function() {
     trie.insert('horse');
 
     expect(trie.totalWords).to.eq(2);
+
+    console.log(JSON.stringify(trie.rootNode.keys, null, 4)) 
 
    });
 
@@ -94,16 +99,19 @@ describe('trie class test', function() {
 
    });
 
-  it.skip('should create child nodes for each letter of the word', function() {
+  it('should create child nodes for each letter of the word', function() {
     let trie = new Trie();
 
     trie.insert('hello');
     // trie.insert('world')
     // trie.insert('howdy');
 
-    trie.suggest();
+    trie.suggest('hello');
 
-    console.log("TRIE ROOT: " + trie.rootNode.keys);
+
+    console.log(JSON.stringify(trie.rootNode.keys, null, 4)) 
+
+
 
     // console.log(Object.keys(trie.root.children));//prints [h, w, h] for the first letter of each word
 
@@ -131,7 +139,7 @@ describe('trie class test', function() {
   it.skip('should return an empty array if there are no matches', function() {
     let trie = new Trie();
 
-    
+
 
 
    });
@@ -144,8 +152,26 @@ describe('trie class test', function() {
    });
 
 
+
+
  });
 
+  describe('populate test', function() {
+
+
+  it('should populate the trie with the default dictionary', () => {
+    let trie = new Trie();
+    const path = '/usr/share/dict/words'
+    const dictionary = fs.readFileSync(path).toString().trim().split('\n');
+
+    trie.populate(dictionary);
+
+    const count = trie.count();
+
+    // assert.equal(count, 235886)
+  });
+
+});
 
 
  // expect(trie.rootNode).to.have.property('c');
