@@ -1,6 +1,8 @@
- import { assert } from 'chai';
- import Node from '../lib/Node';
-    
+import { expect } from 'chai';
+import { assert } from 'chai';
+
+import Node from '../lib/Node';
+
 
 describe('node class test', function() {
 
