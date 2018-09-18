@@ -61,8 +61,11 @@ describe('trie class test', function() {
     let trie = new Trie();
 
     trie.insert('hello', node);
+    trie.insert('hey', node);
     trie.insert('whatssaaaaap', node);
+    trie.insert('whoville', node);
     trie.insert('megalomaniac', node);
+
 
     console.log(JSON.stringify(trie.rootNode, null, 4));
 
@@ -93,7 +96,7 @@ describe('trie class test', function() {
 
     expect(trie.totalWords).to.eq(2);
 
-    console.log(JSON.stringify(trie.rootNode.keys, null, 4)) 
+    console.log(JSON.stringify(trie.rootNode.keys, null, 4))
 
    });
 
