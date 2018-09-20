@@ -9,11 +9,11 @@ const dictionary = fs.readFileSync(text).toString().trim().split('\n');
 
 describe('trie class test', function() {
 
-  // let trie;
+  let trie;
 
-  // beforeEach(() => {
-  //   trie = new Trie();
-  // });
+  beforeEach(() => {
+    trie = new Trie();
+  });
 
   it('should have correct default properties', function() {
     let trie = new Trie();
@@ -66,24 +66,9 @@ describe('trie class test', function() {
     trie.insert('whoville', node);
     trie.insert('megalomaniac', node);
 
-
     console.log(JSON.stringify(trie.rootNode, null, 4));
 
    });
-
-  // it.skip('should insert words correctly', () => {
-  //   let trie = new Trie();
-  //   trie.insert ('what');
-  //   trie.insert ('is');
-  //   trie.insert ('up');
-
-
-  //   console.log(JSON.stringify(trie, null, 4));
-  //   //     expect(Object.keys(trie.root.children)).to.deep.eq([ 'h', 'c', 'p' ]);
-
-  //   expect(Object.keys(trie.rootNode.keys).to.deep.eq([ 'w', 'i', 'u' ]);
-
-  //  });
 
   it('should increase totalWords each time we add a new word', function() {
     let trie = new Trie();
@@ -107,15 +92,7 @@ describe('trie class test', function() {
 
     trie.insert('howdy');
 
-    trie.insert('howdy');
-
-    // expect(trie.totalWords).to.eq(1);
-
-    // if(!trie.insert(this.word)){
-    //   expect(trie.totalWords).to.eq(2);
-    // }else if(trie.insert(this.word)){
-    //   expect(trie.totalWords).to.eq(1);
-    // }
+    trie.insert('horse');
 
    });
 
@@ -129,23 +106,6 @@ describe('trie class test', function() {
     assert.isFunction(trie.suggest);
 
    });
-
-  it.skip('should return an empty array if there are no matches', function() {
-    let trie = new Trie();
-
-
-
-
-   });
-
-  it.skip('if there are matches it should return only every single match', function() {
-    let trie = new Trie();
-    //here insert a variety of words that should/shouldn't be in the returned array: hey, hello, help, and then dog because dog is very different
-
-
-   });
-
- });
 
   describe('populate test', function() {
 
@@ -166,6 +126,3 @@ describe('trie class test', function() {
   });
 
 });
-
-
-//  // expect(trie.rootNode).to.have.property('c');

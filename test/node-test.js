@@ -1,44 +1,39 @@
-// import { expect } from 'chai';
-// import { assert } from 'chai';
+import { expect } from 'chai';
+import { assert } from 'chai';
+import Node from '../lib/Node';
 
-// import Node from '../lib/Node';
+describe('NODE', () => {
+  let node;
 
+  beforeEach(() => {
+    node = new Node();
+  });
 
-// describe('NODE', () => {
-//   let node;
+  describe('node class test', function() {
 
-//   beforeEach(() => {
-//     node = new Node();
-//   });
+    it('should exist', () => {
+      expect(node).to.exist;
+    });
 
-//   // it('should exist', () => {
-//   //   expect(node).to.exist;
-//   // });
+    it('it should have correct default properties', function() {
 
-//   // it ('should be an instance of a node', () {
+      let node = new Node();
 
-//   // })
+      assert.deepEqual(node, {
+        end: false,
+        children: {}
+      });
 
-//   it('should default end to false', () => {
-//     expect(node.end).to.equal(false);
-//   });
+     });
 
-//   it('should default children to an empty object', () => {
-//     expect(node.children).to.deep.equal({});
-//   });
-// });
+     it('should default end to false', () => {
+       expect(node.end).to.equal(false);
+     });
 
-// // describe('node class test', function() {
+     it('should default children to an empty object', () => {
+       expect(node.children).to.deep.equal({});
+     });
 
-// //   it('it should have correct default properties', function() {
+ });
 
-// //     let node = new Node();
-
-// //     assert.deepEqual(node, {
-// //       end: false,
-// //       keys: new Map()
-// //     });
-
-// //    });
-
-// // });
+});

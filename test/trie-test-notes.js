@@ -1,6 +1,6 @@
  // import { assert } from 'chai';
  // import Trie from '../lib/Trie';
-    
+
  // describe('assert test', function() {
 
 
@@ -14,13 +14,13 @@
  //  //write a test to pass the default property values in?
  //  //it takes in a letter (if you did it like that)?
 
- //  //for the Trie test:  
+ //  //for the Trie test:
 
  //  //Insert:
 
  //  //just test that it exists
  //  //test that it's an instance of a trie
- //  //has correct default properties\ 
+ //  //has correct default properties\
  //  //write a test to pass the default property values in?
  //  //should increment word count
  //  //test that it doesn't increment the wordCount if you insert a duplicate
@@ -32,8 +32,8 @@
  //  //if there are matches it should return every single match and nothing else
  //  //insert a variety of words that should/shouldn't be in the returned array: hey, hello, help, and then dog because dog is very different
  //  //
-  
-  
+
+
  //  it('it should be a function', function() {
  //    let trie = new Trie();
 
