@@ -21,7 +21,8 @@ describe('NODE', () => {
 
       assert.deepEqual(node, {
         end: false,
-        children: {}
+        children: {},
+        keys: new Map()
       });
 
      });
